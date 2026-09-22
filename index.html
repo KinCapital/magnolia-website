@@ -1156,8 +1156,8 @@
   const units = [
     { id:1,  snum:'Scheme 01', scheme:'Praline Brick',      skey:'s01', status:'sold',      lot:392, gfa:172, price:null   },
     { id:2,  snum:'Scheme 02', scheme:'Pure White Smooth',  skey:'s02', status:'available',  lot:332, gfa:173, price:765000 },
-    { id:3,  snum:'Scheme 04', scheme:'Tarkine Rugged',     skey:'s04', status:'available',  lot:318, gfa:173, price:759000 },
-    { id:4,  snum:'Scheme 03', scheme:'Pure White Exposed', skey:'s03', status:'sold',      lot:408, gfa:171, price:null   },
+    { id:3,  snum:'Scheme 04', scheme:'Tarkine Rugged',     skey:'s04', status:'available',  lot:318, gfa:173, price:745000 },
+    { id:4,  snum:'Scheme 03', scheme:'Pure White Exposed', skey:'s03', status:'contract',  lot:408, gfa:171, price:null   },
     { id:5,  snum:'Scheme 01', scheme:'Praline Brick',      skey:'s01', status:'available',  lot:370, gfa:173, price:789000 },
     { id:6,  snum:'Scheme 02', scheme:'Pure White Smooth',  skey:'s02', status:'available',  lot:334, gfa:172, price:775000 },
     { id:7,  snum:'Scheme 04', scheme:'Tarkine Rugged',     skey:'s04', status:'available',  lot:352, gfa:173, price:779000 },
@@ -1175,7 +1175,7 @@
     { id:19, snum:'Scheme 02', scheme:'Pure White Smooth',  skey:'s02', status:'available',  lot:315, gfa:173, price:765000 },
     { id:20, snum:'Scheme 04', scheme:'Tarkine Rugged',     skey:'s04', status:'available',  lot:320, gfa:173, price:765000 },
     { id:21, snum:'Scheme 01', scheme:'Praline Brick',      skey:'s01', status:'available',  lot:413, gfa:171, price:815000 },
-    { id:22, snum:'Scheme 02', scheme:'Pure White Smooth',  skey:'s02', status:'sold',      lot:334, gfa:167, price:null   },
+    { id:22, snum:'Scheme 02', scheme:'Pure White Smooth',  skey:'s02', status:'contract',  lot:334, gfa:167, price:null   },
     { id:23, snum:'Scheme 04', scheme:'Tarkine Rugged',     skey:'s04', status:'available',  lot:316, gfa:167, price:765000 },
     { id:24, snum:'Scheme 03', scheme:'Pure White Exposed', skey:'s03', status:'available',  lot:331, gfa:169, price:765000 },
     { id:25, snum:'Scheme 04', scheme:'Tarkine Rugged',     skey:'s04', status:'available',  lot:388, gfa:173, price:805000 },
@@ -1196,7 +1196,7 @@
       const card = document.createElement('div');
       card.className = `unit-card fade scheme-${u.skey}${u.status==='sold'?' status-sold':''}`;
       card.dataset.id = u.id;
-      const priceLine = u.price ? `From $${u.price.toLocaleString()}` : 'Sold';
+      const priceLine = u.status === 'contract' ? 'Under Offer' : (u.price ? `From $${u.price.toLocaleString()}` : 'Sold');
       card.innerHTML = `
         <img class="uc-img" src="${imgPath(u.id)}" alt="Unit ${n} — ${u.scheme}" loading="lazy">
         <div class="uc-overlay"></div>
@@ -1238,7 +1238,7 @@
     document.getElementById('ulbImg').alt     = `Unit ${n} — ${u.scheme}`;
     document.getElementById('ulbUnitTag').textContent   = `UNIT ${n}`;
     document.getElementById('ulbSchemeName').textContent = `${u.snum} · ${u.scheme}`;
-    const priceLine = u.price ? `From $${u.price.toLocaleString()}` : 'Sold';
+    const priceLine = u.status === 'contract' ? 'Under Offer' : (u.price ? `From $${u.price.toLocaleString()}` : 'Sold');
     document.getElementById('ulbSpecs').textContent = `${u.lot}m² lot · ${u.gfa}m² home · ${priceLine}`;
     const sb = document.getElementById('ulbStatus');
     sb.textContent = { available:'Available', contract:'Under Offer', sold:'Sold' }[u.status];
