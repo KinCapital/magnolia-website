@@ -12,8 +12,8 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --charcoal: #1a1512; --charcoal-mid: #2d2520; --charcoal-soft: #3d3530;
-      --sage: #8BBF9F; --sage-d: #5a8e72; --sage-dk: #3d6b52;
-      --gold: #C4A46B; --gold-d: #a07f48;
+      --sage: #7DA089; --sage-d: #56765f; --sage-dk: #3a5641;
+      --gold: #B08D53; --gold-d: #8a6c3c;
       --warm: #f5f0e8; --warm-d: #e8e0d0; --warm-dd: #d8cfc0;
       --white: #ffffff; --muted: #7a6e60; --grey: #888075;
       --serif: 'Cormorant Garamond', Georgia, serif;
@@ -82,18 +82,19 @@
 
     /* ── STATS ───────────────────────────────────────────────── */
     .stats-bar { display: grid; grid-template-columns: repeat(4,1fr); background: var(--charcoal); }
-    .stat { padding: 36px 28px; text-align: center; border-right: 1px solid rgba(255,255,255,0.07); }
+    .stat { padding: 22px 28px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
     .stat:last-child { border-right: none; }
-    .stat-n { font-family: var(--serif); font-size: 42px; font-weight: 300; color: var(--sage); line-height: 1; display: block; margin-bottom: 6px; }
-    .stat-l { font-size: 9px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--grey); line-height: 1.5; }
+    .stat-n { font-family: var(--serif); font-size: 22px; font-weight: 400; color: rgba(255,255,255,0.92); line-height: 1; display: block; margin-bottom: 4px; }
+    .stat-l { font-size: 9px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); line-height: 1.4; }
 
     /* ── SECTION BASE ────────────────────────────────────────── */
     .section { padding: 96px 80px; }
     .section-inner { max-width: 1280px; margin: 0 auto; }
-    .tag { display: inline-block; font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; padding: 6px 14px; margin-bottom: 20px; }
-    .tag-sage { background: var(--sage); color: var(--charcoal); }
-    .tag-dark { background: var(--sage-d); color: var(--white); }
-    .tag-gold { background: var(--gold); color: var(--charcoal); }
+    .tag { display: inline-flex; align-items: center; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px; }
+    .tag::before { content: ''; display: inline-block; width: 22px; height: 1px; background: currentColor; margin-right: 10px; opacity: 0.7; }
+    .tag-sage { color: var(--sage-dk); }
+    .tag-dark { color: var(--gold); }
+    .tag-gold { color: var(--gold-d); }
     .h2 { font-family: var(--serif); font-size: clamp(34px, 3.8vw, 54px); font-weight: 300; line-height: 1.08; margin-bottom: 16px; }
     .lead { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--muted); line-height: 1.75; }
     .body-text { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.9; }
@@ -499,23 +500,11 @@
 
 <!-- HERO -->
 <section id="hero">
-  <!-- Slideshow layers — official Magnolia renders across all four facade schemes -->
   <div class="hero-slide active" id="hs0" style="background-image:url('photo-05.jpg')"></div>
-  <div class="hero-slide" id="hs1" style="background-image:url('photo-06.jpg')"></div>
-  <div class="hero-slide" id="hs2" style="background-image:url('aerial.jpg');background-position:center 60%"></div>
-  <div class="hero-slide" id="hs3" style="background-image:url('photo-07.jpg')"></div>
   <div class="hero-overlay"></div>
-  <!-- Dot indicators -->
-  <div class="hero-dots" id="heroDots">
-    <div class="hero-dot active" onclick="goSlide(0)"></div>
-    <div class="hero-dot" onclick="goSlide(1)"></div>
-    <div class="hero-dot" onclick="goSlide(2)"></div>
-    <div class="hero-dot" onclick="goSlide(3)"></div>
-  </div>
-  <div class="hero-counter" id="heroCounter">01 / 04</div>
   <div class="hero-content" style="z-index:2;position:relative">
     <div class="hero-selling">Selling Now</div>
-    <h1 class="hero-h1">Your New Home.<br><em>Your Signature.</em></h1>
+    <h1 class="hero-h1">Magnolia<br><em>Estate.</em></h1>
     <p class="hero-sub">Prospect Vale, Tasmania — 25 private residences</p>
     <div class="hero-rule"></div>
     <p class="hero-desc">Choose from four architect-designed facade schemes and personalise every detail inside — all built by Wilson Homes, beside the Championship Golf Course at Country Club Tasmania.</p>
@@ -647,7 +636,7 @@
   <div class="section-inner">
     <div class="features-header fade">
       <div class="tag tag-sage">What You Get</div>
-      <h2 class="h2" style="margin-top:16px">Every Magnolia Home<br>Includes.</h2>
+      <h2 class="h2" style="margin-top:16px">Included as<br>Standard.</h2>
       <div class="gold-line" style="margin:20px auto"></div>
       <p class="lead">A generous, well-considered brief — built to a standard you won't need to upgrade.</p>
     </div>
@@ -710,7 +699,7 @@
     <div class="customise-grid">
       <div class="fade">
         <div class="tag tag-dark">Make It Yours</div>
-        <h2 class="h2" style="color:var(--white);margin-top:16px">Your Home,<br>Your Signature.</h2>
+        <h2 class="h2" style="color:var(--white);margin-top:16px">Interiors,<br>Considered.</h2>
         <div class="gold-line"></div>
         <p class="lead" style="color:var(--grey)">Every Magnolia residence comes with a full interior design consultation through Wilson Homes' My Choice Design Studio.</p>
         <div class="customise-items">
@@ -847,7 +836,7 @@
 <!-- UNIT GALLERY -->
 <section id="units">
   <div class="units-header fade">
-    <div class="tag" style="background:rgba(139,191,159,0.15);color:var(--sage);border:1px solid rgba(139,191,159,0.3)">25 Exclusive Residences</div>
+    <div class="tag" style="color:var(--sage)">25 Exclusive Residences</div>
     <h2 class="h2" style="margin-top:16px;max-width:640px;color:var(--white)">Find Your Home<br>at Magnolia.</h2>
     <div class="gold-line"></div>
     <p class="body-text" style="max-width:580px;color:rgba(255,255,255,0.55)">Each of the 25 Magnolia residences carries its own distinct facade scheme — from warm earthy brick to dramatic dark tones. Click any home to view the full render in detail.</p>
@@ -1058,7 +1047,7 @@
       <div>
         <div class="foot-brand">magnolia</div>
         <div class="foot-sub">by kinship</div>
-        <p class="foot-tagline">25 private residences beside the Championship Golf Course at Country Club Tasmania. A home crafted for the life you've earned.</p>
+        <p class="foot-tagline">25 private residences at Country Club Avenue, Prospect Vale. Developed by Kin Capital, built by Wilson Homes.</p>
       </div>
       <div>
         <div class="foot-col-title">The Homes</div>
@@ -1103,20 +1092,6 @@
   });
   function toggleMenu() { document.getElementById('mobMenu').classList.toggle('open'); }
 
-  // Hero slideshow
-  let slideIdx = 0;
-  const TOTAL = 4;
-  const counters = ['01 / 04','02 / 04','03 / 04','04 / 04'];
-  function goSlide(i) {
-    document.getElementById('hs'+slideIdx).classList.remove('active');
-    document.querySelectorAll('.hero-dot')[slideIdx].classList.remove('active');
-    slideIdx = i;
-    document.getElementById('hs'+slideIdx).classList.add('active');
-    document.querySelectorAll('.hero-dot')[slideIdx].classList.add('active');
-    document.getElementById('heroCounter').textContent = counters[slideIdx];
-  }
-  function nextSlide() { goSlide((slideIdx + 1) % TOTAL); }
-  setInterval(nextSlide, 5500);
 
   // Fade observer
   const obs = new IntersectionObserver(entries => {
